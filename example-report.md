@@ -1,53 +1,44 @@
-# Threat Intelligence Agent
+# IOC Enrichment Agent
 
 ## Summary
 
-- **advisory:** DEMO-2026-001
-- **scope:** Fictional training lab snapshot
-- **assets examined:** 3
-- **product candidates:** 3
-- **affected version matches:** 1
-- **assessment:** potential\_exposure
+- **as of:** 2026-01-15T12:00:00Z
+- **indicators:** 2
+- **snapshots:** 3
+- **max age days:** 30
 
 ## Findings
 
 ### Finding 1
 
-- **asset:** lab-gateway
-- **version:** 2\.4\.1
-- **status:** affected\_version\_match
-- **exposure:** internet
-- **review priority:** expedite
-- **evidence:** \["inventory:lab-gateway", "https://example\.org/advisories/DEMO-2026-001"\]
+- **id:** indicator-1
+- **type:** domain
+- **normalized value:** demo\.example
+- **status:** conflicting\_reputation
+- **current providers:** \["Synthetic Provider A", "Synthetic Provider B"\]
+- **active evidence ids:** \["rep-1", "rep-2"\]
+- **stale evidence ids:** \[\]
 
 ### Finding 2
 
-- **asset:** lab-worker
-- **version:** null
-- **status:** version\_unknown
-- **exposure:** internal
-- **review priority:** verify
-- **evidence:** \["inventory:lab-worker", "https://example\.org/advisories/DEMO-2026-001"\]
-
-### Finding 3
-
-- **asset:** lab-updated
-- **version:** 2\.5\.0
-- **status:** version\_not\_listed
-- **exposure:** internal
-- **review priority:** verify
-- **evidence:** \["inventory:lab-updated", "https://example\.org/advisories/DEMO-2026-001"\]
+- **id:** indicator-2
+- **type:** ip
+- **normalized value:** 192\.0\.2\.10
+- **status:** unknown
+- **current providers:** \[\]
+- **active evidence ids:** \[\]
+- **stale evidence ids:** \["rep-3"\]
 
 
 ## Limitations
 
-- Exact vendor/product and exact version matching only; no aliases, ranges, backport or reachability analysis\.
-- A listed vulnerable version does not prove exploitability or compromise; a non-listed version is not confirmed safe\.
-- The input snapshot is not independently verified\. Inventory completeness and source freshness are unknown\.
-- Review priority is a transparent example heuristic, not CVSS, SSVC or a remediation SLA\.
+- No live reputation lookup or DNS resolution is performed\. Snapshot provenance is caller supplied\.
+- A reputation verdict is a source assertion, not proof of an incident or an instruction to block\.
+- Provider independence, recycled infrastructure and time-specific context need analyst review\.
+- IP, domain and SHA-256 indicators are supported; URL, email and wildcard matching are not implemented\.
 
 ## Next Steps
 
-- Verify advisory scope, version ranges and exploitation evidence against primary sources\.
-- Check runtime version, configuration, reachability and mitigations for each candidate\.
-- Record missing inventory coverage and assign an owner to unresolved exposure\.
+- Verify source timestamps and disagreements before using reputation in a decision\.
+- Correlate exact indicators with scoped internal observations\.
+- Use an approved intelligence provider only when disclosure of the indicator is authorized\.

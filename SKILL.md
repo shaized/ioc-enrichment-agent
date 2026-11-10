@@ -1,18 +1,18 @@
 ---
-name: threat-intel-agent
-description: Model-agnostic threat intelligence skill with a local advisory-to-inventory matching tool and synthetic examples.
+name: ioc-enrichment-agent
+description: Offline IOC enrichment skill with IP/domain/SHA-256 normalization, source freshness checks and conflict-aware reputation summaries.
 ---
 
-# Threat Intelligence Agent
+# IOC Enrichment Agent
 
-Turn an advisory into an evidence-backed exposure review.
+Combine indicator context without hiding disagreement or age.
 
 ## Workflow
 
-1. Identify the advisory, affected product, source dates and the assessment scope. Prefer primary vendor advisories and authoritative exploitation evidence.
-2. Compare the advisory with the supplied asset inventory using agent.py. The helper accepts exact versions only; manually resolve version ranges, packaging and backports with evidence.
-3. Assess runtime presence, configuration, exposure, required attacker access and controls separately. Record what is measured and what is inferred.
-4. Return an exposure assessment with evidence references, missing coverage, confidence reasoning and specific next steps. A version match establishes a candidate, not compromise.
+1. Normalize the indicator and establish its type and observation time. Confirm whether submitting it to an external service is authorized before performing any live enrichment.
+2. Run agent.py on supplied reputation snapshots. Keep provider identity, observation timestamps, stale results and disagreements visible.
+3. Correlate reputation with the exact observed activity and time window. Do not turn a domain, shared IP, or recycled address into a timeless malicious attribution.
+4. Return source assertions separately from your assessment, with the strongest supporting and conflicting evidence and the remaining collection gaps. Do not automatically block or suppress.
 
 ## Local evidence tool
 

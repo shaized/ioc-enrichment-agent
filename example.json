@@ -1,39 +1,42 @@
 {
-  "advisory": {
-    "id": "DEMO-2026-001",
-    "vendor": "Example Vendor",
-    "product": "Example Gateway",
-    "affected_versions": [
-      "2.4.0",
-      "2.4.1"
-    ],
-    "source": "https://example.org/advisories/DEMO-2026-001",
-    "exploitation": "unknown"
-  },
-  "inventory": {
-    "scope": "Fictional training lab snapshot",
-    "assets": [
-      {
-        "id": "lab-gateway",
-        "vendor": "Example Vendor",
-        "product": "Example Gateway",
-        "version": "2.4.1",
-        "exposure": "internet"
-      },
-      {
-        "id": "lab-worker",
-        "vendor": "Example Vendor",
-        "product": "Example Gateway",
-        "version": null,
-        "exposure": "internal"
-      },
-      {
-        "id": "lab-updated",
-        "vendor": "Example Vendor",
-        "product": "Example Gateway",
-        "version": "2.5.0",
-        "exposure": "internal"
-      }
-    ]
-  }
+  "as_of": "2026-01-15T12:00:00Z",
+  "max_age_days": 30,
+  "indicators": [
+    {
+      "id": "indicator-1",
+      "type": "domain",
+      "value": "Demo.Example."
+    },
+    {
+      "id": "indicator-2",
+      "type": "ip",
+      "value": "192.0.2.10"
+    }
+  ],
+  "snapshots": [
+    {
+      "id": "rep-1",
+      "type": "domain",
+      "value": "demo.example",
+      "provider": "Synthetic Provider A",
+      "observed_at": "2026-01-14T12:00:00Z",
+      "verdict": "malicious"
+    },
+    {
+      "id": "rep-2",
+      "type": "domain",
+      "value": "demo.example",
+      "provider": "Synthetic Provider B",
+      "observed_at": "2026-01-14T12:00:00Z",
+      "verdict": "benign"
+    },
+    {
+      "id": "rep-3",
+      "type": "ip",
+      "value": "192.0.2.10",
+      "provider": "Synthetic Provider A",
+      "observed_at": "2025-10-01T12:00:00Z",
+      "verdict": "malicious"
+    }
+  ]
 }
