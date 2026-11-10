@@ -1,0 +1,39 @@
+{
+  "advisory": {
+    "id": "DEMO-2026-001",
+    "vendor": "Example Vendor",
+    "product": "Example Gateway",
+    "affected_versions": [
+      "2.4.0",
+      "2.4.1"
+    ],
+    "source": "https://example.org/advisories/DEMO-2026-001",
+    "exploitation": "unknown"
+  },
+  "inventory": {
+    "scope": "Fictional training lab snapshot",
+    "assets": [
+      {
+        "id": "lab-gateway",
+        "vendor": "Example Vendor",
+        "product": "Example Gateway",
+        "version": "2.4.1",
+        "exposure": "internet"
+      },
+      {
+        "id": "lab-worker",
+        "vendor": "Example Vendor",
+        "product": "Example Gateway",
+        "version": null,
+        "exposure": "internal"
+      },
+      {
+        "id": "lab-updated",
+        "vendor": "Example Vendor",
+        "product": "Example Gateway",
+        "version": "2.5.0",
+        "exposure": "internal"
+      }
+    ]
+  }
+}
